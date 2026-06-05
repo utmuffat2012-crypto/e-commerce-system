@@ -1,21 +1,5 @@
-{% extends 'store/base.html' %}
-
-{% block content %}
-
-<h2>Products</h2>
-
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
-
-{% for product in products %}
-
-<div style="border:1px solid #ddd;padding:10px;">
+{% if product.image %}
     <img src="{{ product.image.url }}" style="width:100%;height:200px;object-fit:cover;">
-    <h3>{{ product.name }}</h3>
-    <p>₦{{ product.price }}</p>
-</div>
-
-{% endfor %}
-
-</div>
-
-{% endblock %}
+{% else %}
+    <p>No image available</p>
+{% endif %}
